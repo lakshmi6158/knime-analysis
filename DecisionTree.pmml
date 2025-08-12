@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="B.Lakshmi">
+    <Application name="KNIME" version="5.2.2"/>
+  </Header>
+  <DataDictionary numberOfFields="5">
+    <DataField name="Sex" optype="categorical" dataType="string">
+      <Value value="male"/>
+      <Value value="female"/>
+    </DataField>
+    <DataField name="Age" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.17" rightMargin="80.0"/>
+    </DataField>
+    <DataField name="Salary" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="1.66" rightMargin="4962.37"/>
+    </DataField>
+    <DataField name="Survived" optype="categorical" dataType="string">
+      <Value value="0"/>
+      <Value value="1"/>
+    </DataField>
+    <DataField name="Fare" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="512.3292"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="binarySplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="Sex" invalidValueTreatment="asIs"/>
+      <MiningField name="Age" invalidValueTreatment="asIs"/>
+      <MiningField name="Salary" invalidValueTreatment="asIs"/>
+      <MiningField name="Fare" invalidValueTreatment="asIs"/>
+      <MiningField name="Survived" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score="0" recordCount="867.0">
+      <True/>
+      <ScoreDistribution value="0" recordCount="541.0"/>
+      <ScoreDistribution value="1" recordCount="326.0"/>
+      <Node id="1" score="0" recordCount="565.0">
+        <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">"male" </Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution value="0" recordCount="488.0"/>
+        <ScoreDistribution value="1" recordCount="77.0"/>
+        <Node id="2" score="1" recordCount="13.0">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="3.5"/>
+          <ScoreDistribution value="0" recordCount="4.0"/>
+          <ScoreDistribution value="1" recordCount="9.0"/>
+          <Node id="3" score="1" recordCount="9.0">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="2.5"/>
+            <ScoreDistribution value="0" recordCount="4.0"/>
+            <ScoreDistribution value="1" recordCount="5.0"/>
+            <Node id="4" score="0" recordCount="2.0">
+              <SimplePredicate field="Salary" operator="lessOrEqual" value="166.22500000000002"/>
+              <ScoreDistribution value="0" recordCount="2.0"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+            </Node>
+            <Node id="5" score="1" recordCount="7.0">
+              <SimplePredicate field="Salary" operator="greaterThan" value="166.22500000000002"/>
+              <ScoreDistribution value="0" recordCount="2.0"/>
+              <ScoreDistribution value="1" recordCount="5.0"/>
+            </Node>
+          </Node>
+          <Node id="10" score="1" recordCount="4.0">
+            <SimplePredicate field="Age" operator="greaterThan" value="2.5"/>
+            <ScoreDistribution value="0" recordCount="0.0"/>
+            <ScoreDistribution value="1" recordCount="4.0"/>
+          </Node>
+        </Node>
+        <Node id="11" score="0" recordCount="552.0">
+          <SimplePredicate field="Age" operator="greaterThan" value="3.5"/>
+          <ScoreDistribution value="0" recordCount="484.0"/>
+          <ScoreDistribution value="1" recordCount="68.0"/>
+          <Node id="12" score="0" recordCount="457.0">
+            <SimplePredicate field="Salary" operator="lessOrEqual" value="2777.39"/>
+            <ScoreDistribution value="0" recordCount="415.0"/>
+            <ScoreDistribution value="1" recordCount="42.0"/>
+            <Node id="13" score="0" recordCount="17.0">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="12.5"/>
+              <ScoreDistribution value="0" recordCount="12.0"/>
+              <ScoreDistribution value="1" recordCount="5.0"/>
+              <Node id="14" score="1" recordCount="3.0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="13.860399999999998"/>
+                <ScoreDistribution value="0" recordCount="0.0"/>
+                <ScoreDistribution value="1" recordCount="3.0"/>
+              </Node>
+              <Node id="15" score="0" recordCount="14.0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="13.860399999999998"/>
+                <ScoreDistribution value="0" recordCount="12.0"/>
+                <ScoreDistribution value="1" recordCount="2.0"/>
+              </Node>
+            </Node>
+            <Node id="20" score="0" recordCount="440.0">
+              <SimplePredicate field="Age" operator="greaterThan" value="12.5"/>
+              <ScoreDistribution value="0" recordCount="403.0"/>
+              <ScoreDistribution value="1" recordCount="37.0"/>
+              <Node id="21" score="0" recordCount="99.0">
+                <SimplePredicate field="Salary" operator="lessOrEqual" value="151.17000000000002"/>
+                <ScoreDistribution value="0" recordCount="96.0"/>
+                <ScoreDistribution value="1" recordCount="3.0"/>
+              </Node>
+              <Node id="36" score="0" recordCount="341.0">
+                <SimplePredicate field="Salary" operator="greaterThan" value="151.17000000000002"/>
+                <ScoreDistribution value="0" recordCount="307.0"/>
+                <ScoreDistribution value="1" recordCount="34.0"/>
+                <Node id="37" score="0" recordCount="27.0">
+                  <SimplePredicate field="Salary" operator="lessOrEqual" value="177.555"/>
+                  <ScoreDistribution value="0" recordCount="19.0"/>
+                  <ScoreDistribution value="1" recordCount="8.0"/>
+                  <Node id="38" score="0" recordCount="25.0">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="45.4354"/>
+                    <ScoreDistribution value="0" recordCount="19.0"/>
+                    <ScoreDistribution value="1" recordCount="6.0"/>
+                    <Node id="39" score="0" recordCount="23.0">
+                      <SimplePredicate field="Salary" operator="lessOrEqual" value="175.65"/>
+                      <ScoreDistribution value="0" recordCount="19.0"/>
+                      <ScoreDistribution value="1" recordCount="4.0"/>
+                      <Node id="40" score="0" recordCount="14.0">
+                        <SimplePredicate field="Salary" operator="lessOrEqual" value="165.91"/>
+                        <ScoreDistribution value="0" recordCount="13.0"/>
+                        <ScoreDistribution value="1" recordCount="1.0"/>
+                      </Node>
+                      <Node id="43" score="0" recordCount="9.0">
+                        <SimplePredicate field="Salary" operator="greaterThan" value="165.91"/>
+                        <ScoreDistribution value="0" recordCount="6.0"/>
+                        <ScoreDistribution value="1" recordCount="3.0"/>
+                        <Node id="44" score="1" recordCount="2.0">
+                          <SimplePredicate field="Salary" operator="lessOrEqual" value="169.60500000000002"/>
+                          <ScoreDistribution value="0" recordCount="0.0"/>
+                          <ScoreDistribution value="1" recordCount="2.0"/>
+                        </Node>
+                        <Node id="45" score="0" recordCount="7.0">
+                          <SimplePredicate field="Salary" operator="greaterThan" value="169.60500000000002"/>
+                          <ScoreDistribution value="0" recordCount="6.0"/>
+                          <ScoreDistribution value="1" recordCount="1.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node id="48" score="1" recordCount="2.0">
+                      <SimplePredicate field="Salary" operator="greaterThan" value="175.65"/>
+                      <ScoreDistribution value="0" recordCount="0.0"/>
+                      <ScoreDistribution value="1" recordCount="2.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="49" score="1" recordCount="2.0">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="45.4354"/>
+                    <ScoreDistribution value="0" recordCount="0.0"/>
+                    <ScoreDistribution value="1" recordCount="2.0"/>
+                  </Node>
+                </Node>
+                <Node id="50" score="0" recordCount="314.0">
+                  <SimplePredicate field="Salary" operator="greaterThan" value="177.555"/>
+                  <ScoreDistribution value="0" recordCount="288.0"/>
+                  <ScoreDistribution value="1" recordCount="26.0"/>
+                  <Node id="51" score="0" recordCount="94.0">
+                    <SimplePredicate field="Salary" operator="lessOrEqual" value="302.375"/>
+                    <ScoreDistribution value="0" recordCount="90.0"/>
+                    <ScoreDistribution value="1" recordCount="4.0"/>
+                  </Node>
+                  <Node id="66" score="0" recordCount="220.0">
+                    <SimplePredicate field="Salary" operator="greaterThan" value="302.375"/>
+                    <ScoreDistribution value="0" recordCount="198.0"/>
+                    <ScoreDistribution value="1" recordCount="22.0"/>
+                    <Node id="67" score="0" recordCount="61.0">
+                      <SimplePredicate field="Salary" operator="lessOrEqual" value="378.455"/>
+                      <ScoreDistribution value="0" recordCount="51.0"/>
+                      <ScoreDistribution value="1" recordCount="10.0"/>
+                      <Node id="68" score="0" recordCount="58.0">
+                        <SimplePredicate field="Salary" operator="lessOrEqual" value="372.395"/>
+                        <ScoreDistribution value="0" recordCount="50.0"/>
+                        <ScoreDistribution value="1" recordCount="8.0"/>
+                        <Node id="69" score="0" recordCount="2.0">
+                          <SimplePredicate field="Fare" operator="lessOrEqual" value="6.9875"/>
+                          <ScoreDistribution value="0" recordCount="1.0"/>
+                          <ScoreDistribution value="1" recordCount="1.0"/>
+                        </Node>
+                        <Node id="70" score="0" recordCount="56.0">
+                          <SimplePredicate field="Fare" operator="greaterThan" value="6.9875"/>
+                          <ScoreDistribution value="0" recordCount="49.0"/>
+                          <ScoreDistribution value="1" recordCount="7.0"/>
+                          <Node id="71" score="0" recordCount="2.0">
+                            <SimplePredicate field="Salary" operator="lessOrEqual" value="307.225"/>
+                            <ScoreDistribution value="0" recordCount="1.0"/>
+                            <ScoreDistribution value="1" recordCount="1.0"/>
+                          </Node>
+                          <Node id="72" score="0" recordCount="54.0">
+                            <SimplePredicate field="Salary" operator="greaterThan" value="307.225"/>
+                            <ScoreDistribution value="0" recordCount="48.0"/>
+                            <ScoreDistribution value="1" recordCount="6.0"/>
+                            <Node id="73" score="0" recordCount="42.0">
+                              <SimplePredicate field="Salary" operator="lessOrEqual" value="362.435"/>
+                              <ScoreDistribution value="0" recordCount="39.0"/>
+                              <ScoreDistribution value="1" recordCount="3.0"/>
+                            </Node>
+                            <Node id="84" score="0" recordCount="12.0">
+                              <SimplePredicate field="Salary" operator="greaterThan" value="362.435"/>
+                              <ScoreDistribution value="0" recordCount="9.0"/>
+                              <ScoreDistribution value="1" recordCount="3.0"/>
+                              <Node id="85" score="0" recordCount="6.0">
+                                <SimplePredicate field="Salary" operator="lessOrEqual" value="367.8"/>
+                                <ScoreDistribution value="0" recordCount="3.0"/>
+                                <ScoreDistribution value="1" recordCount="3.0"/>
+                                <Node id="86" score="0" recordCount="2.0">
+                                  <SimplePredicate field="Fare" operator="lessOrEqual" value="7.4875"/>
+                                  <ScoreDistribution value="0" recordCount="2.0"/>
+                                  <ScoreDistribution value="1" recordCount="0.0"/>
+                                </Node>
+                                <Node id="87" score="1" recordCount="4.0">
+                                  <SimplePredicate field="Fare" operator="greaterThan" value="7.4875"/>
+                                  <ScoreDistribution value="0" recordCount="1.0"/>
+                                  <ScoreDistribution value="1" recordCount="3.0"/>
+                                </Node>
+                              </Node>
+                              <Node id="90" score="0" recordCount="6.0">
+                                <SimplePredicate field="Salary" operator="greaterThan" value="367.8"/>
+                                <ScoreDistribution value="0" recordCount="6.0"/>
+                                <ScoreDistribution value="1" recordCount="0.0"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="91" score="1" recordCount="3.0">
+                        <SimplePredicate field="Salary" operator="greaterThan" value="372.395"/>
+                        <ScoreDistribution value="0" recordCount="1.0"/>
+                        <ScoreDistribution value="1" recordCount="2.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="92" score="0" recordCount="159.0">
+                      <SimplePredicate field="Salary" operator="greaterThan" value="378.455"/>
+                      <ScoreDistribution value="0" recordCount="147.0"/>
+                      <ScoreDistribution value="1" recordCount="12.0"/>
+                      <Node id="93" score="0" recordCount="91.0">
+                        <SimplePredicate field="Salary" operator="lessOrEqual" value="1273.2649999999999"/>
+                        <ScoreDistribution value="0" recordCount="88.0"/>
+                        <ScoreDistribution value="1" recordCount="3.0"/>
+                        <Node id="94" score="0" recordCount="17.0">
+                          <SimplePredicate field="Fare" operator="lessOrEqual" value="8.993749999999999"/>
+                          <ScoreDistribution value="0" recordCount="15.0"/>
+                          <ScoreDistribution value="1" recordCount="2.0"/>
+                          <Node id="95" score="0" recordCount="10.0">
+                            <SimplePredicate field="Salary" operator="lessOrEqual" value="393.34000000000003"/>
+                            <ScoreDistribution value="0" recordCount="10.0"/>
+                            <ScoreDistribution value="1" recordCount="0.0"/>
+                          </Node>
+                          <Node id="96" score="0" recordCount="7.0">
+                            <SimplePredicate field="Salary" operator="greaterThan" value="393.34000000000003"/>
+                            <ScoreDistribution value="0" recordCount="5.0"/>
+                            <ScoreDistribution value="1" recordCount="2.0"/>
+                            <Node id="97" score="0" recordCount="3.0">
+                              <SimplePredicate field="Fare" operator="lessOrEqual" value="6.81875"/>
+                              <ScoreDistribution value="0" recordCount="3.0"/>
+                              <ScoreDistribution value="1" recordCount="0.0"/>
+                            </Node>
+                            <Node id="98" score="0" recordCount="4.0">
+                              <SimplePredicate field="Fare" operator="greaterThan" value="6.81875"/>
+                              <ScoreDistribution value="0" recordCount="2.0"/>
+                              <ScoreDistribution value="1" recordCount="2.0"/>
+                              <Node id="99" score="0" recordCount="2.0">
+                                <SimplePredicate field="Age" operator="lessOrEqual" value="23.0"/>
+                                <ScoreDistribution value="0" recordCount="2.0"/>
+                                <ScoreDistribution value="1" recordCount="0.0"/>
+                              </Node>
+                              <Node id="100" score="1" recordCount="2.0">
+                                <SimplePredicate field="Age" operator="greaterThan" value="23.0"/>
+                                <ScoreDistribution value="0" recordCount="0.0"/>
+                                <ScoreDistribution value="1" recordCount="2.0"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node id="101" score="0" recordCount="74.0">
+                          <SimplePredicate field="Fare" operator="greaterThan" value="8.993749999999999"/>
+                          <ScoreDistribution value="0" recordCount="73.0"/>
+                          <ScoreDistribution value="1" recordCount="1.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="108" score="0" recordCount="68.0">
+                        <SimplePredicate field="Salary" operator="greaterThan" value="1273.2649999999999"/>
+                        <ScoreDistribution value="0" recordCount="59.0"/>
+                        <ScoreDistribution value="1" recordCount="9.0"/>
+                        <Node id="109" score="0" recordCount="49.0">
+                          <SimplePredicate field="Salary" operator="lessOrEqual" value="2399.365"/>
+                          <ScoreDistribution value="0" recordCount="40.0"/>
+                          <ScoreDistribution value="1" recordCount="9.0"/>
+                          <Node id="110" score="0" recordCount="39.0">
+                            <SimplePredicate field="Salary" operator="lessOrEqual" value="2111.8450000000003"/>
+                            <ScoreDistribution value="0" recordCount="34.0"/>
+                            <ScoreDistribution value="1" recordCount="5.0"/>
+                          </Node>
+                          <Node id="123" score="0" recordCount="10.0">
+                            <SimplePredicate field="Salary" operator="greaterThan" value="2111.8450000000003"/>
+                            <ScoreDistribution value="0" recordCount="6.0"/>
+                            <ScoreDistribution value="1" recordCount="4.0"/>
+                            <Node id="124" score="1" recordCount="2.0">
+                              <SimplePredicate field="Salary" operator="lessOrEqual" value="2144.1899999999996"/>
+                              <ScoreDistribution value="0" recordCount="0.0"/>
+                              <ScoreDistribution value="1" recordCount="2.0"/>
+                            </Node>
+                            <Node id="125" score="0" recordCount="8.0">
+                              <SimplePredicate field="Salary" operator="greaterThan" value="2144.1899999999996"/>
+                              <ScoreDistribution value="0" recordCount="6.0"/>
+                              <ScoreDistribution value="1" recordCount="2.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node id="130" score="0" recordCount="19.0">
+                          <SimplePredicate field="Salary" operator="greaterThan" value="2399.365"/>
+                          <ScoreDistribution value="0" recordCount="19.0"/>
+                          <ScoreDistribution value="1" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="131" score="0" recordCount="95.0">
+            <SimplePredicate field="Salary" operator="greaterThan" value="2777.39"/>
+            <ScoreDistribution value="0" recordCount="69.0"/>
+            <ScoreDistribution value="1" recordCount="26.0"/>
+            <Node id="132" score="0" recordCount="93.0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="387.3521"/>
+              <ScoreDistribution value="0" recordCount="69.0"/>
+              <ScoreDistribution value="1" recordCount="24.0"/>
+              <Node id="133" score="0" recordCount="10.0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="26.14375"/>
+                <ScoreDistribution value="0" recordCount="10.0"/>
+                <ScoreDistribution value="1" recordCount="0.0"/>
+              </Node>
+              <Node id="134" score="0" recordCount="83.0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="26.14375"/>
+                <ScoreDistribution value="0" recordCount="59.0"/>
+                <ScoreDistribution value="1" recordCount="24.0"/>
+                <Node id="135" score="1" recordCount="11.0">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="27.1354"/>
+                  <ScoreDistribution value="0" recordCount="4.0"/>
+                  <ScoreDistribution value="1" recordCount="7.0"/>
+                  <Node id="136" score="0" recordCount="5.0">
+                    <SimplePredicate field="Salary" operator="lessOrEqual" value="3348.125"/>
+                    <ScoreDistribution value="0" recordCount="3.0"/>
+                    <ScoreDistribution value="1" recordCount="2.0"/>
+                    <Node id="137" score="1" recordCount="2.0">
+                      <SimplePredicate field="Fare" operator="lessOrEqual" value="26.46875"/>
+                      <ScoreDistribution value="0" recordCount="0.0"/>
+                      <ScoreDistribution value="1" recordCount="2.0"/>
+                    </Node>
+                    <Node id="138" score="0" recordCount="3.0">
+                      <SimplePredicate field="Fare" operator="greaterThan" value="26.46875"/>
+                      <ScoreDistribution value="0" recordCount="3.0"/>
+                      <ScoreDistribution value="1" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="139" score="1" recordCount="6.0">
+                    <SimplePredicate field="Salary" operator="greaterThan" value="3348.125"/>
+                    <ScoreDistribution value="0" recordCount="1.0"/>
+                    <ScoreDistribution value="1" recordCount="5.0"/>
+                  </Node>
+                </Node>
+                <Node id="142" score="0" recordCount="72.0">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="27.1354"/>
+                  <ScoreDistribution value="0" recordCount="55.0"/>
+                  <ScoreDistribution value="1" recordCount="17.0"/>
+                  <Node id="143" score="1" recordCount="3.0">
+                    <SimplePredicate field="Salary" operator="lessOrEqual" value="2928.83"/>
+                    <ScoreDistribution value="0" recordCount="1.0"/>
+                    <ScoreDistribution value="1" recordCount="2.0"/>
+                  </Node>
+                  <Node id="144" score="0" recordCount="69.0">
+                    <SimplePredicate field="Salary" operator="greaterThan" value="2928.83"/>
+                    <ScoreDistribution value="0" recordCount="54.0"/>
+                    <ScoreDistribution value="1" recordCount="15.0"/>
+                    <Node id="145" score="0" recordCount="57.0">
+                      <SimplePredicate field="Salary" operator="lessOrEqual" value="4720.295"/>
+                      <ScoreDistribution value="0" recordCount="47.0"/>
+                      <ScoreDistribution value="1" recordCount="10.0"/>
+                      <Node id="146" score="0" recordCount="7.0">
+                        <SimplePredicate field="Age" operator="lessOrEqual" value="28.407484407484407"/>
+                        <ScoreDistribution value="0" recordCount="4.0"/>
+                        <ScoreDistribution value="1" recordCount="3.0"/>
+                        <Node id="147" score="1" recordCount="4.0">
+                          <SimplePredicate field="Salary" operator="lessOrEqual" value="4115.9800000000005"/>
+                          <ScoreDistribution value="0" recordCount="1.0"/>
+                          <ScoreDistribution value="1" recordCount="3.0"/>
+                        </Node>
+                        <Node id="150" score="0" recordCount="3.0">
+                          <SimplePredicate field="Salary" operator="greaterThan" value="4115.9800000000005"/>
+                          <ScoreDistribution value="0" recordCount="3.0"/>
+                          <ScoreDistribution value="1" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="151" score="0" recordCount="50.0">
+                        <SimplePredicate field="Age" operator="greaterThan" value="28.407484407484407"/>
+                        <ScoreDistribution value="0" recordCount="43.0"/>
+                        <ScoreDistribution value="1" recordCount="7.0"/>
+                        <Node id="152" score="0" recordCount="39.0">
+                          <SimplePredicate field="Age" operator="lessOrEqual" value="49.5"/>
+                          <ScoreDistribution value="0" recordCount="32.0"/>
+                          <ScoreDistribution value="1" recordCount="7.0"/>
+                          <Node id="153" score="0" recordCount="34.0">
+                            <SimplePredicate field="Age" operator="lessOrEqual" value="47.5"/>
+                            <ScoreDistribution value="0" recordCount="30.0"/>
+                            <ScoreDistribution value="1" recordCount="4.0"/>
+                            <Node id="154" score="0" recordCount="24.0">
+                              <SimplePredicate field="Age" operator="lessOrEqual" value="42.5"/>
+                              <ScoreDistribution value="0" recordCount="20.0"/>
+                              <ScoreDistribution value="1" recordCount="4.0"/>
+                              <Node id="155" score="0" recordCount="22.0">
+                                <SimplePredicate field="Salary" operator="lessOrEqual" value="4539.02"/>
+                                <ScoreDistribution value="0" recordCount="19.0"/>
+                                <ScoreDistribution value="1" recordCount="3.0"/>
+                                <Node id="156" score="0" recordCount="16.0">
+                                  <SimplePredicate field="Age" operator="lessOrEqual" value="37.5"/>
+                                  <ScoreDistribution value="0" recordCount="15.0"/>
+                                  <ScoreDistribution value="1" recordCount="1.0"/>
+                                </Node>
+                                <Node id="159" score="0" recordCount="6.0">
+                                  <SimplePredicate field="Age" operator="greaterThan" value="37.5"/>
+                                  <ScoreDistribution value="0" recordCount="4.0"/>
+                                  <ScoreDistribution value="1" recordCount="2.0"/>
+                                  <Node id="160" score="0" recordCount="3.0">
+                                    <SimplePredicate field="Fare" operator="lessOrEqual" value="52.277100000000004"/>
+                                    <ScoreDistribution value="0" recordCount="3.0"/>
+                                    <ScoreDistribution value="1" recordCount="0.0"/>
+                                  </Node>
+                                  <Node id="161" score="1" recordCount="3.0">
+                                    <SimplePredicate field="Fare" operator="greaterThan" value="52.277100000000004"/>
+                                    <ScoreDistribution value="0" recordCount="1.0"/>
+                                    <ScoreDistribution value="1" recordCount="2.0"/>
+                                  </Node>
+                                </Node>
+                              </Node>
+                              <Node id="162" score="0" recordCount="2.0">
+                                <SimplePredicate field="Salary" operator="greaterThan" value="4539.02"/>
+                                <ScoreDistribution value="0" recordCount="1.0"/>
+                                <ScoreDistribution value="1" recordCount="1.0"/>
+                              </Node>
+                            </Node>
+                            <Node id="163" score="0" recordCount="10.0">
+                              <SimplePredicate field="Age" operator="greaterThan" value="42.5"/>
+                              <ScoreDistribution value="0" recordCount="10.0"/>
+                              <ScoreDistribution value="1" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="164" score="1" recordCount="5.0">
+                            <SimplePredicate field="Age" operator="greaterThan" value="47.5"/>
+                            <ScoreDistribution value="0" recordCount="2.0"/>
+                            <ScoreDistribution value="1" recordCount="3.0"/>
+                            <Node id="165" score="0" recordCount="3.0">
+                              <SimplePredicate field="Salary" operator="lessOrEqual" value="3920.95"/>
+                              <ScoreDistribution value="0" recordCount="2.0"/>
+                              <ScoreDistribution value="1" recordCount="1.0"/>
+                            </Node>
+                            <Node id="166" score="1" recordCount="2.0">
+                              <SimplePredicate field="Salary" operator="greaterThan" value="3920.95"/>
+                              <ScoreDistribution value="0" recordCount="0.0"/>
+                              <ScoreDistribution value="1" recordCount="2.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node id="167" score="0" recordCount="11.0">
+                          <SimplePredicate field="Age" operator="greaterThan" value="49.5"/>
+                          <ScoreDistribution value="0" recordCount="11.0"/>
+                          <ScoreDistribution value="1" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node id="168" score="0" recordCount="12.0">
+                      <SimplePredicate field="Salary" operator="greaterThan" value="4720.295"/>
+                      <ScoreDistribution value="0" recordCount="7.0"/>
+                      <ScoreDistribution value="1" recordCount="5.0"/>
+                      <Node id="169" score="1" recordCount="6.0">
+                        <SimplePredicate field="Salary" operator="lessOrEqual" value="4856.135"/>
+                        <ScoreDistribution value="0" recordCount="1.0"/>
+                        <ScoreDistribution value="1" recordCount="5.0"/>
+                      </Node>
+                      <Node id="172" score="0" recordCount="6.0">
+                        <SimplePredicate field="Salary" operator="greaterThan" value="4856.135"/>
+                        <ScoreDistribution value="0" recordCount="6.0"/>
+                        <ScoreDistribution value="1" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="173" score="1" recordCount="2.0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="387.3521"/>
+              <ScoreDistribution value="0" recordCount="0.0"/>
+              <ScoreDistribution value="1" recordCount="2.0"/>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+      <Node id="174" score="1" recordCount="302.0">
+        <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">"female" </Array>
+        </SimpleSetPredicate>
+        <ScoreDistribution value="0" recordCount="53.0"/>
+        <ScoreDistribution value="1" recordCount="249.0"/>
+        <Node id="175" score="1" recordCount="140.0">
+          <SimplePredicate field="Salary" operator="lessOrEqual" value="396.54499999999996"/>
+          <ScoreDistribution value="0" recordCount="47.0"/>
+          <ScoreDistribution value="1" recordCount="93.0"/>
+          <Node id="176" score="1" recordCount="124.0">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="24.808349999999997"/>
+            <ScoreDistribution value="0" recordCount="34.0"/>
+            <ScoreDistribution value="1" recordCount="90.0"/>
+            <Node id="177" score="1" recordCount="38.0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="7.8416999999999994"/>
+              <ScoreDistribution value="0" recordCount="6.0"/>
+              <ScoreDistribution value="1" recordCount="32.0"/>
+              <Node id="178" score="1" recordCount="27.0">
+                <SimplePredicate field="Salary" operator="lessOrEqual" value="302.01"/>
+                <ScoreDistribution value="0" recordCount="6.0"/>
+                <ScoreDistribution value="1" recordCount="21.0"/>
+                <Node id="179" score="1" recordCount="25.0">
+                  <SimplePredicate field="Salary" operator="lessOrEqual" value="289.96000000000004"/>
+                  <ScoreDistribution value="0" recordCount="4.0"/>
+                  <ScoreDistribution value="1" recordCount="21.0"/>
+                  <Node id="180" score="1" recordCount="16.0">
+                    <SimplePredicate field="Salary" operator="lessOrEqual" value="195.425"/>
+                    <ScoreDistribution value="0" recordCount="4.0"/>
+                    <ScoreDistribution value="1" recordCount="12.0"/>
+                    <Node id="181" score="0" recordCount="4.0">
+                      <SimplePredicate field="Age" operator="lessOrEqual" value="21.5"/>
+                      <ScoreDistribution value="0" recordCount="2.0"/>
+                      <ScoreDistribution value="1" recordCount="2.0"/>
+                      <Node id="182" score="1" recordCount="2.0">
+                        <SimplePredicate field="Age" operator="lessOrEqual" value="17.0"/>
+                        <ScoreDistribution value="0" recordCount="0.0"/>
+                        <ScoreDistribution value="1" recordCount="2.0"/>
+                      </Node>
+                      <Node id="183" score="0" recordCount="2.0">
+                        <SimplePredicate field="Age" operator="greaterThan" value="17.0"/>
+                        <ScoreDistribution value="0" recordCount="2.0"/>
+                        <ScoreDistribution value="1" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="184" score="1" recordCount="12.0">
+                      <SimplePredicate field="Age" operator="greaterThan" value="21.5"/>
+                      <ScoreDistribution value="0" recordCount="2.0"/>
+                      <ScoreDistribution value="1" recordCount="10.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="189" score="1" recordCount="9.0">
+                    <SimplePredicate field="Salary" operator="greaterThan" value="195.425"/>
+                    <ScoreDistribution value="0" recordCount="0.0"/>
+                    <ScoreDistribution value="1" recordCount="9.0"/>
+                  </Node>
+                </Node>
+                <Node id="190" score="0" recordCount="2.0">
+                  <SimplePredicate field="Salary" operator="greaterThan" value="289.96000000000004"/>
+                  <ScoreDistribution value="0" recordCount="2.0"/>
+                  <ScoreDistribution value="1" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="191" score="1" recordCount="11.0">
+                <SimplePredicate field="Salary" operator="greaterThan" value="302.01"/>
+                <ScoreDistribution value="0" recordCount="0.0"/>
+                <ScoreDistribution value="1" recordCount="11.0"/>
+              </Node>
+            </Node>
+            <Node id="192" score="1" recordCount="86.0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="7.8416999999999994"/>
+              <ScoreDistribution value="0" recordCount="28.0"/>
+              <ScoreDistribution value="1" recordCount="58.0"/>
+              <Node id="193" score="1" recordCount="18.0">
+                <SimplePredicate field="Salary" operator="lessOrEqual" value="91.89"/>
+                <ScoreDistribution value="0" recordCount="2.0"/>
+                <ScoreDistribution value="1" recordCount="16.0"/>
+                <Node id="194" score="1" recordCount="16.0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="34.907484407484404"/>
+                  <ScoreDistribution value="0" recordCount="0.0"/>
+                  <ScoreDistribution value="1" recordCount="16.0"/>
+                </Node>
+                <Node id="195" score="0" recordCount="2.0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="34.907484407484404"/>
+                  <ScoreDistribution value="0" recordCount="2.0"/>
+                  <ScoreDistribution value="1" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="196" score="1" recordCount="68.0">
+                <SimplePredicate field="Salary" operator="greaterThan" value="91.89"/>
+                <ScoreDistribution value="0" recordCount="26.0"/>
+                <ScoreDistribution value="1" recordCount="42.0"/>
+                <Node id="197" score="0" recordCount="25.0">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="11.35"/>
+                  <ScoreDistribution value="0" recordCount="13.0"/>
+                  <ScoreDistribution value="1" recordCount="12.0"/>
+                  <Node id="198" score="1" recordCount="20.0">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="9.70625"/>
+                    <ScoreDistribution value="0" recordCount="8.0"/>
+                    <ScoreDistribution value="1" recordCount="12.0"/>
+                    <Node id="199" score="0" recordCount="2.0">
+                      <SimplePredicate field="Salary" operator="lessOrEqual" value="128.355"/>
+                      <ScoreDistribution value="0" recordCount="2.0"/>
+                      <ScoreDistribution value="1" recordCount="0.0"/>
+                    </Node>
+                    <Node id="200" score="1" recordCount="18.0">
+                      <SimplePredicate field="Salary" operator="greaterThan" value="128.355"/>
+                      <ScoreDistribution value="0" recordCount="6.0"/>
+                      <ScoreDistribution value="1" recordCount="12.0"/>
+                      <Node id="201" score="0" recordCount="10.0">
+                        <SimplePredicate field="Fare" operator="lessOrEqual" value="8.28335"/>
+                        <ScoreDistribution value="0" recordCount="5.0"/>
+                        <ScoreDistribution value="1" recordCount="5.0"/>
+                        <Node id="202" score="0" recordCount="2.0">
+                          <SimplePredicate field="Salary" operator="lessOrEqual" value="199.16"/>
+                          <ScoreDistribution value="0" recordCount="2.0"/>
+                          <ScoreDistribution value="1" recordCount="0.0"/>
+                        </Node>
+                        <Node id="203" score="1" recordCount="8.0">
+                          <SimplePredicate field="Salary" operator="greaterThan" value="199.16"/>
+                          <ScoreDistribution value="0" recordCount="3.0"/>
+                          <ScoreDistribution value="1" recordCount="5.0"/>
+                          <Node id="204" score="1" recordCount="2.0">
+                            <SimplePredicate field="Salary" operator="lessOrEqual" value="214.12"/>
+                            <ScoreDistribution value="0" recordCount="0.0"/>
+                            <ScoreDistribution value="1" recordCount="2.0"/>
+                          </Node>
+                          <Node id="205" score="0" recordCount="6.0">
+                            <SimplePredicate field="Salary" operator="greaterThan" value="214.12"/>
+                            <ScoreDistribution value="0" recordCount="3.0"/>
+                            <ScoreDistribution value="1" recordCount="3.0"/>
+                            <Node id="206" score="0" recordCount="2.0">
+                              <SimplePredicate field="Salary" operator="lessOrEqual" value="249.74"/>
+                              <ScoreDistribution value="0" recordCount="2.0"/>
+                              <ScoreDistribution value="1" recordCount="0.0"/>
+                            </Node>
+                            <Node id="207" score="1" recordCount="4.0">
+                              <SimplePredicate field="Salary" operator="greaterThan" value="249.74"/>
+                              <ScoreDistribution value="0" recordCount="1.0"/>
+                              <ScoreDistribution value="1" recordCount="3.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="210" score="1" recordCount="8.0">
+                        <SimplePredicate field="Fare" operator="greaterThan" value="8.28335"/>
+                        <ScoreDistribution value="0" recordCount="1.0"/>
+                        <ScoreDistribution value="1" recordCount="7.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="213" score="0" recordCount="5.0">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="9.70625"/>
+                    <ScoreDistribution value="0" recordCount="5.0"/>
+                    <ScoreDistribution value="1" recordCount="0.0"/>
+                  </Node>
+                </Node>
+                <Node id="214" score="1" recordCount="43.0">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="11.35"/>
+                  <ScoreDistribution value="0" recordCount="13.0"/>
+                  <ScoreDistribution value="1" recordCount="30.0"/>
+                  <Node id="215" score="1" recordCount="7.0">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="14.28125"/>
+                    <ScoreDistribution value="0" recordCount="0.0"/>
+                    <ScoreDistribution value="1" recordCount="7.0"/>
+                  </Node>
+                  <Node id="216" score="1" recordCount="36.0">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="14.28125"/>
+                    <ScoreDistribution value="0" recordCount="13.0"/>
+                    <ScoreDistribution value="1" recordCount="23.0"/>
+                    <Node id="217" score="0" recordCount="12.0">
+                      <SimplePredicate field="Age" operator="lessOrEqual" value="18.5"/>
+                      <ScoreDistribution value="0" recordCount="7.0"/>
+                      <ScoreDistribution value="1" recordCount="5.0"/>
+                      <Node id="218" score="1" recordCount="5.0">
+                        <SimplePredicate field="Age" operator="lessOrEqual" value="6.5"/>
+                        <ScoreDistribution value="0" recordCount="1.0"/>
+                        <ScoreDistribution value="1" recordCount="4.0"/>
+                      </Node>
+                      <Node id="221" score="0" recordCount="7.0">
+                        <SimplePredicate field="Age" operator="greaterThan" value="6.5"/>
+                        <ScoreDistribution value="0" recordCount="6.0"/>
+                        <ScoreDistribution value="1" recordCount="1.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="224" score="1" recordCount="24.0">
+                      <SimplePredicate field="Age" operator="greaterThan" value="18.5"/>
+                      <ScoreDistribution value="0" recordCount="6.0"/>
+                      <ScoreDistribution value="1" recordCount="18.0"/>
+                      <Node id="225" score="1" recordCount="17.0">
+                        <SimplePredicate field="Age" operator="lessOrEqual" value="30.5"/>
+                        <ScoreDistribution value="0" recordCount="3.0"/>
+                        <ScoreDistribution value="1" recordCount="14.0"/>
+                        <Node id="226" score="1" recordCount="5.0">
+                          <SimplePredicate field="Salary" operator="lessOrEqual" value="156.79500000000002"/>
+                          <ScoreDistribution value="0" recordCount="2.0"/>
+                          <ScoreDistribution value="1" recordCount="3.0"/>
+                          <Node id="227" score="0" recordCount="3.0">
+                            <SimplePredicate field="Fare" operator="lessOrEqual" value="19.775"/>
+                            <ScoreDistribution value="0" recordCount="2.0"/>
+                            <ScoreDistribution value="1" recordCount="1.0"/>
+                          </Node>
+                          <Node id="228" score="1" recordCount="2.0">
+                            <SimplePredicate field="Fare" operator="greaterThan" value="19.775"/>
+                            <ScoreDistribution value="0" recordCount="0.0"/>
+                            <ScoreDistribution value="1" recordCount="2.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="229" score="1" recordCount="12.0">
+                          <SimplePredicate field="Salary" operator="greaterThan" value="156.79500000000002"/>
+                          <ScoreDistribution value="0" recordCount="1.0"/>
+                          <ScoreDistribution value="1" recordCount="11.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="232" score="1" recordCount="7.0">
+                        <SimplePredicate field="Age" operator="greaterThan" value="30.5"/>
+                        <ScoreDistribution value="0" recordCount="3.0"/>
+                        <ScoreDistribution value="1" recordCount="4.0"/>
+                        <Node id="233" score="0" recordCount="5.0">
+                          <SimplePredicate field="Fare" operator="lessOrEqual" value="20.23125"/>
+                          <ScoreDistribution value="0" recordCount="3.0"/>
+                          <ScoreDistribution value="1" recordCount="2.0"/>
+                          <Node id="234" score="1" recordCount="3.0">
+                            <SimplePredicate field="Fare" operator="lessOrEqual" value="16.95"/>
+                            <ScoreDistribution value="0" recordCount="1.0"/>
+                            <ScoreDistribution value="1" recordCount="2.0"/>
+                          </Node>
+                          <Node id="235" score="0" recordCount="2.0">
+                            <SimplePredicate field="Fare" operator="greaterThan" value="16.95"/>
+                            <ScoreDistribution value="0" recordCount="2.0"/>
+                            <ScoreDistribution value="1" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="236" score="1" recordCount="2.0">
+                          <SimplePredicate field="Fare" operator="greaterThan" value="20.23125"/>
+                          <ScoreDistribution value="0" recordCount="0.0"/>
+                          <ScoreDistribution value="1" recordCount="2.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="237" score="0" recordCount="16.0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="24.808349999999997"/>
+            <ScoreDistribution value="0" recordCount="13.0"/>
+            <ScoreDistribution value="1" recordCount="3.0"/>
+            <Node id="238" score="1" recordCount="3.0">
+              <SimplePredicate field="Salary" operator="lessOrEqual" value="104.08500000000001"/>
+              <ScoreDistribution value="0" recordCount="1.0"/>
+              <ScoreDistribution value="1" recordCount="2.0"/>
+            </Node>
+            <Node id="239" score="0" recordCount="13.0">
+              <SimplePredicate field="Salary" operator="greaterThan" value="104.08500000000001"/>
+              <ScoreDistribution value="0" recordCount="12.0"/>
+              <ScoreDistribution value="1" recordCount="1.0"/>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="244" score="1" recordCount="162.0">
+          <SimplePredicate field="Salary" operator="greaterThan" value="396.54499999999996"/>
+          <ScoreDistribution value="0" recordCount="6.0"/>
+          <ScoreDistribution value="1" recordCount="156.0"/>
+          <Node id="245" score="1" recordCount="63.0">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="29.35625"/>
+            <ScoreDistribution value="0" recordCount="5.0"/>
+            <ScoreDistribution value="1" recordCount="58.0"/>
+            <Node id="246" score="1" recordCount="40.0">
+              <SimplePredicate field="Salary" operator="lessOrEqual" value="1606.52"/>
+              <ScoreDistribution value="0" recordCount="1.0"/>
+              <ScoreDistribution value="1" recordCount="39.0"/>
+            </Node>
+            <Node id="251" score="1" recordCount="23.0">
+              <SimplePredicate field="Salary" operator="greaterThan" value="1606.52"/>
+              <ScoreDistribution value="0" recordCount="4.0"/>
+              <ScoreDistribution value="1" recordCount="19.0"/>
+              <Node id="252" score="1" recordCount="10.0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="22.0"/>
+                <ScoreDistribution value="0" recordCount="3.0"/>
+                <ScoreDistribution value="1" recordCount="7.0"/>
+                <Node id="253" score="1" recordCount="8.0">
+                  <SimplePredicate field="Salary" operator="lessOrEqual" value="1898.3"/>
+                  <ScoreDistribution value="0" recordCount="3.0"/>
+                  <ScoreDistribution value="1" recordCount="5.0"/>
+                  <Node id="254" score="0" recordCount="3.0">
+                    <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+                    <ScoreDistribution value="0" recordCount="2.0"/>
+                    <ScoreDistribution value="1" recordCount="1.0"/>
+                  </Node>
+                  <Node id="255" score="1" recordCount="5.0">
+                    <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+                    <ScoreDistribution value="0" recordCount="1.0"/>
+                    <ScoreDistribution value="1" recordCount="4.0"/>
+                  </Node>
+                </Node>
+                <Node id="258" score="1" recordCount="2.0">
+                  <SimplePredicate field="Salary" operator="greaterThan" value="1898.3"/>
+                  <ScoreDistribution value="0" recordCount="0.0"/>
+                  <ScoreDistribution value="1" recordCount="2.0"/>
+                </Node>
+              </Node>
+              <Node id="259" score="1" recordCount="13.0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="22.0"/>
+                <ScoreDistribution value="0" recordCount="1.0"/>
+                <ScoreDistribution value="1" recordCount="12.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="262" score="1" recordCount="99.0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="29.35625"/>
+            <ScoreDistribution value="0" recordCount="1.0"/>
+            <ScoreDistribution value="1" recordCount="98.0"/>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="B.Lakshmi">
+    <Application name="KNIME" version="5.2.2"/>
+  </Header>
+  <DataDictionary numberOfFields="4">
+    <DataField name="Sex" optype="categorical" dataType="string">
+      <Value value="male"/>
+      <Value value="female"/>
+    </DataField>
+    <DataField name="Age" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Survived" optype="categorical" dataType="string">
+      <Value value="0"/>
+      <Value value="1"/>
+    </DataField>
+    <DataField name="Fare" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+  </DataDictionary>
+  <GeneralRegressionModel modelType="multinomialLogistic" functionName="classification" algorithmName="LogisticRegression" modelName="KNIME Logistic Regression" targetReferenceCategory="0">
+    <MiningSchema>
+      <MiningField name="Sex" invalidValueTreatment="asIs"/>
+      <MiningField name="Fare" invalidValueTreatment="asIs"/>
+      <MiningField name="Survived" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <ParameterList>
+      <Parameter name="p0" label="Intercept"/>
+      <Parameter name="p1" label="[Sex=male]"/>
+      <Parameter name="p2" label="Fare"/>
+    </ParameterList>
+    <FactorList>
+      <Predictor name="Sex"/>
+    </FactorList>
+    <CovariateList>
+      <Predictor name="Fare"/>
+    </CovariateList>
+    <PPMatrix>
+      <PPCell value="male" predictorName="Sex" parameterName="p1"/>
+      <PPCell value="1" predictorName="Fare" parameterName="p2"/>
+    </PPMatrix>
+    <ParamMatrix>
+      <PCell targetCategory="1" parameterName="p0" beta="1.3116476113402673" df="1"/>
+      <PCell targetCategory="1" parameterName="p1" beta="-3.5029277788359603" df="1"/>
+      <PCell targetCategory="1" parameterName="p2" beta="4.718930950865458" df="1"/>
+    </ParamMatrix>
+  </GeneralRegressionModel>
+</PMML>
