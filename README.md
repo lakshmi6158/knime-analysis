@@ -92,11 +92,3 @@ This project presents a comprehensive analysis and classification of Titanic pas
 
 ***
 
-This README summarizes the key aspects of the Titanic survival classification project performed using KNIME, providing clarity on the methodology, models, and findings.
-
-<div style="text-align: center">⁂</div>
-
-[^1]: 230140648.pdf
-
-[^2]: Analysis-of-Titanic-Survival-Data.html
-
